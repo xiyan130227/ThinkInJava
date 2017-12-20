@@ -1,4 +1,4 @@
-package Reusing;
+package reusing.composition;
 
 class WaterSource {
     private String s;

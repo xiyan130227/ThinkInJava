@@ -1,4 +1,4 @@
-package Reusing;
+package reusing.inheritance;
 
 class A2 {
     public A2(String s) {

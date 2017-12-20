@@ -1,4 +1,4 @@
-package Reusing;
+package reusing.delegation;
 
 class Cleanser {
     private String s = "Cleanser";
@@ -32,25 +32,49 @@ class Cleanser {
     }
 }
 
-public class Detergent extends Cleanser {
+class DetergentDelegation {
+    private Cleanser cleanser = new Cleanser();
+
+    public void append(String a) {
+        cleanser.append(a);
+    }
+
+    public void dilute() {
+        cleanser.dilute();
+    }
+
+    public void apply() {
+        cleanser.apply();
+    }
 
     public void scrub() {
-        append("    Detergent.scrub()");
-        super.scrub();
+        append("    DetergentDelegation.scrub()");
+        cleanser.scrub();
     }
 
     public void foam() {
         append("    foam()");
     }
 
+    @Override
+    public String toString() {
+        return cleanser.toString();
+    }
+
     public static void main(String[] args) {
-        Detergent x = new Detergent();
+        DetergentDelegation x = new DetergentDelegation();
         x.dilute();
         x.apply();
         x.scrub();
         x.foam();
         System.out.println(x);
-        System.out.println("============Testing base class: ============");
+        System.out.println("Testing base class: ");
         Cleanser.main(args);
+    }
+}
+
+public class E11_Delegation {
+    public static void main(String[] args) {
+        DetergentDelegation.main(args);
     }
 }
