@@ -1,7 +1,5 @@
 package polymorphism.constructor;
 
-import javax.sound.sampled.Port;
-
 class Meal {
     Meal() {
         System.out.println("Meal()");
