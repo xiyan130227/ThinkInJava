@@ -1,18 +1,18 @@
 package concurrency;
 
-public class EvenGenerator extends IntGenerator {
+public class SynchronizedEvenGenerator extends IntGenerator {
     private int currentEventValue = 0;
 
     @Override
-    public int next() {
+    public synchronized int next() {
         ++currentEventValue;
-        Thread.yield();
+//        Thread.yield();
         ++currentEventValue;
         return currentEventValue;
     }
 
     public static void main(String[] args) {
-        EvenChecker.test(new EvenGenerator());
+        EvenChecker.test(new SynchronizedEvenGenerator());
 
     }
 }
