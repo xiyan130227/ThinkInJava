@@ -14,6 +14,8 @@ public class SimpleWN {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
+                System.out.println(System.currentTimeMillis() + ":T1 end!");
             }
         }
     }
