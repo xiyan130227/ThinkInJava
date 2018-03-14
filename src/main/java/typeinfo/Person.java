@@ -7,6 +7,10 @@ public class Person {
     public final String last;
     public final String address;
 
+    public Person(String first) {
+        this(first, null, null);
+    }
+
     public Person(String first, String last, String address) {
         this.first = first;
         this.last = last;

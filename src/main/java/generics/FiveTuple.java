@@ -1,6 +1,6 @@
 package generics;
 
-public class FiveTuple<A, B, C, D, E> extends FourTuple<A, B, C, D>{
+public class FiveTuple<A, B, C, D, E> extends FourTuple<A, B, C, D> {
     public final E fifth;
 
     public FiveTuple(A a, B b, C c, D d, E e) {
@@ -8,7 +8,6 @@ public class FiveTuple<A, B, C, D, E> extends FourTuple<A, B, C, D>{
         fifth = e;
     }
 
-    @Override
     public String toString() {
         return "(" + first + ", " + second + ", " + third + ", " + fourth + ", " + fifth + ")";
     }
