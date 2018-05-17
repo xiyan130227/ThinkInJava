@@ -4,24 +4,49 @@ import algorithm.sort.Utils;
 
 public class HeapSort {
     public static void heapSort(int[] array) {
-        int n = array.length;
+
+        if (array == null || array.length <= 1) {
+            return;
+        }
+
         buildMaxHeap(array);
-        for (int i = n - 1; i > 1; i--) {
+
+        for (int i = array.length - 1; i >= 1; i--) {
             Utils.swap(array, 0, i);
-            adjustDownToUp(array, 0, i);
+
+            heapAdjust(array, i, 0);
         }
     }
 
     private static void buildMaxHeap(int[] array) {
-        int n = array.length;
-        for (int i = (n - 2) / 2; i >= 0; i--) {
-            adjustDownToUp(array, i, n);
+        if (array == null || array.length <= 1) {
+            return;
+        }
+
+        int half = array.length / 2;
+        for (int i = half; i >= 0; i--) {
+            heapAdjust(array, array.length, i);
         }
     }
 
-    private static void adjustDownToUp(int[] array, int k, int length) {
-        int temp = array[k];
+    private static void heapAdjust(int[] array, int heapSize, int index) {
+        int left = index * 2 + 1;
+        int right = index * 2 + 2;
 
+        int largest = index;
+        if (left < heapSize && array[left] > array[index]) {
+            largest = left;
+        }
+
+        if (right < heapSize && array[right] > array[largest]) {
+            largest = right;
+        }
+
+        if (index != largest) {
+            Utils.swap(array, index, largest);
+
+            heapAdjust(array, heapSize, largest);
+        }
     }
 
 

@@ -24,7 +24,7 @@ public class Recv2 {
                 System.out.println("-------------Recv2 msg: " + msg);
 
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {

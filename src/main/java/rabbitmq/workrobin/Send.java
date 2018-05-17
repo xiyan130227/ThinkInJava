@@ -5,6 +5,7 @@ import com.rabbitmq.client.Connection;
 import rabbitmq.util.ConnectionUtils;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.concurrent.TimeoutException;
 
 public class Send {
@@ -18,7 +19,7 @@ public class Send {
 
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
-        for(int i = 0; i < 50; i ++) {
+        /*for(int i = 0; i < 50; i ++) {
             String msg = "Hello " + i;
 
             System.out.println("Send msg: " + msg);
@@ -29,5 +30,19 @@ public class Send {
 
         channel.close();
         connection.close();
+
+        */
+
+
+        while(true) {
+            String msg = "Hello";
+
+//            System.out.println("Send msg: " + msg);
+
+            channel.basicPublish("", QUEUE_NAME, null, msg.getBytes());
+            Thread.sleep(10);
+        }
+
+
     }
 }
